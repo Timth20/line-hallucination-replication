@@ -1,0 +1,40 @@
+{
+ "files": [
+  {
+   "file": "data/responses/bigcodebench/codellama-7b/part-01.jsonl.gz",
+   "records": 2280,
+   "bytes": 4424396,
+   "sha256": "6f8b3cafd89df8117136a7977953b2f76cc58e921ed21ae8e63383aab689df6b"
+  },
+  {
+   "file": "data/responses/bigcodebench/deepseek-coder-1.3b/part-01.jsonl.gz",
+   "records": 2280,
+   "bytes": 3796067,
+   "sha256": "5547d723e19ddfddc56680d3b66867032503741779089053d93b593de3266f25"
+  },
+  {
+   "file": "data/responses/bigcodebench/deepseek-coder-33b/part-01.jsonl.gz",
+   "records": 2280,
+   "bytes": 3830775,
+   "sha256": "0f44139c580d9b660cb4549ae3d3c22071d88d333e072b7991a0ab6146e6b3c1"
+  },
+  {
+   "file": "data/responses/bigcodebench/deepseek-coder-6.7b/part-01.jsonl.gz",
+   "records": 2280,
+   "bytes": 3858573,
+   "sha256": "0ce838f6188b28d10835d4ceb4ce6d4e0b97caaded8e804d3e65b46facfe2cfd"
+  },
+  {
+   "file": "data/responses/bigcodebench/qwen2.5-coder-7b/part-01.jsonl.gz",
+   "records": 2280,
+   "bytes": 4364422,
+   "sha256": "9a939e68f3f44aaadfdf073d9cf8331f05d0ca09aca0f6a911c46b36be4d9e1f"
+  },
+  {
+   "file": "data/responses/mixed/qwen2.5-coder-7b/part-01.jsonl.gz",
+   "records": 1488,
+   "bytes": 884659,
+   "sha256": "cba59ae974a8499553f4921c0804098918e7c0599ec16e410cf80485f6c6dd21"
+  }
+ ]
+}

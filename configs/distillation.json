@@ -1,0 +1,43 @@
+{
+ "pairs": {
+  "deepseek-coder-6.7b": {
+   "teacher": "deepseek-ai/deepseek-coder-6.7b-instruct",
+   "student": "deepseek-ai/deepseek-coder-1.3b-instruct",
+   "student_revision": "e063262dac8366fc1f28a4da0ff3c50ea66259ca",
+   "layers": [-1, -5, -10]
+  },
+  "deepseek-coder-33b": {
+   "teacher": "deepseek-ai/deepseek-coder-33b-instruct",
+   "student": "deepseek-ai/deepseek-coder-1.3b-instruct",
+   "student_revision": "e063262dac8366fc1f28a4da0ff3c50ea66259ca",
+   "layers": [-1]
+  },
+  "qwen2.5-coder-7b": {
+   "teacher": "Qwen/Qwen2.5-Coder-7B-Instruct",
+   "student": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+   "student_revision": "2e1fd397ee46e1388853d2af2c993145b0f1098a",
+   "layers": [-1, -5, -10]
+  }
+ },
+ "extract_layers": [-1, -5, -10],
+ "train": {
+  "learning_rates": [0.0001, 0.0003],
+  "warmup_steps": 30,
+  "max_steps": 1200,
+  "sequences_per_step": 8,
+  "grad_clip": 1.0,
+  "evaluate_every_steps": 50,
+  "patience": 4,
+  "betas": [0.9, 0.999],
+  "eps": 1e-08,
+  "weight_decay": 0.0,
+  "seeds": {"1": 20261015, "2": 20261016, "3": 20261017}
+ },
+ "ridge": {
+  "train_rows": 100000,
+  "val_rows": 50000,
+  "alphas": [1.0, 10.0, 100.0, 1000.0, 10000.0, 100000.0, 1000000.0],
+  "seed": 20261015
+ },
+ "paired_detector_seed": {"1": 42, "2": 43, "3": 44}
+}

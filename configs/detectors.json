@@ -1,0 +1,5390 @@
+{
+ "original_split_deepseek-coder-1.3b": {
+  "hs": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "hs"
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 4,
+    "epochs": 5,
+    "fp16": true,
+    "gradient_accumulation_steps": 7,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "warmup_ratio": 0,
+    "weight_decay": 0.1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "aw": {
+   "features": [
+    {
+     "history": 8,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": false
+    }
+   ],
+   "head": {
+    "dropout": 0,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 4,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 1,
+    "warmup_ratio": 0.1,
+    "weight_decay": 0
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp": {
+   "features": [
+    {
+     "name": "tp",
+     "top_n": 8,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 4,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 5e-05,
+    "max_grad_norm": 4,
+    "pos_weight": 16,
+    "warmup_ratio": 0.01,
+    "weight_decay": 1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_aw": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10,
+      -20
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 8,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 4,
+    "epochs": 1,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 2,
+    "pos_weight": 2,
+    "warmup_ratio": 0,
+    "weight_decay": 1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_tp": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10,
+      -20
+     ],
+     "name": "hs"
+    },
+    {
+     "name": "tp",
+     "top_n": 4,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 4,
+    "epochs": 4,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 2,
+    "pos_weight": 4,
+    "warmup_ratio": 0,
+    "weight_decay": 0
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp_aw": {
+   "features": [
+    {
+     "name": "tp",
+     "top_n": 4,
+     "zero_prompt": true
+    },
+    {
+     "history": 8,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 4,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 0.0001,
+    "max_grad_norm": 1,
+    "pos_weight": 8,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.05
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp_aw_hs": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10,
+      -20
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 1,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": true
+    },
+    {
+     "name": "tp",
+     "top_n": 4,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 4,
+    "epochs": 4,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 2,
+    "pos_weight": 4,
+    "warmup_ratio": 0,
+    "weight_decay": 0
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "ts_or_tp_hs": {
+   "features": [
+    {
+     "layers": [
+      23,
+      24
+     ],
+     "name": "ts",
+     "top_n": 10
+    },
+    {
+     "layers": [
+      -8,
+      -7,
+      -6,
+      -5,
+      -4,
+      -3,
+      -2,
+      -1
+     ],
+     "name": "layer_logits",
+     "top_n": 10
+    },
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+     ],
+     "name": "or"
+    },
+    {
+     "layers": [
+      -1,
+      -5,
+      -16
+     ],
+     "name": "hs"
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 4,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 5e-05,
+    "max_grad_norm": 0.5,
+    "pos_weight": 2,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "lr": {
+   "features": [
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+     ],
+     "name": "lr"
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 4,
+    "epochs": 5,
+    "fp16": true,
+    "gradient_accumulation_steps": 7,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "warmup_ratio": 0,
+    "weight_decay": 0.1
+   },
+   "seeds": [
+    42,
+    1,
+    2
+   ]
+  },
+  "control_with_test_tasks": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10,
+      -20
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 1,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": true
+    },
+    {
+     "name": "tp",
+     "top_n": 4,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 4,
+    "epochs": 4,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 2,
+    "pos_weight": 4,
+    "warmup_ratio": 0,
+    "weight_decay": 0
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "control_without_test_tasks": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10,
+      -20
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 1,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": true
+    },
+    {
+     "name": "tp",
+     "top_n": 4,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 4,
+    "epochs": 4,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 2,
+    "pos_weight": 4,
+    "warmup_ratio": 0,
+    "weight_decay": 0
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  }
+ },
+ "task_disjoint_deepseek-coder-1.3b": {
+  "hs": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "hs"
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 4,
+    "epochs": 5,
+    "fp16": true,
+    "gradient_accumulation_steps": 7,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "warmup_ratio": 0,
+    "weight_decay": 0.1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "aw": {
+   "features": [
+    {
+     "history": 8,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": false
+    }
+   ],
+   "head": {
+    "dropout": 0,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 4,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 1,
+    "warmup_ratio": 0.1,
+    "weight_decay": 0
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp": {
+   "features": [
+    {
+     "name": "tp",
+     "top_n": 8,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 4,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 5e-05,
+    "max_grad_norm": 4,
+    "pos_weight": 16,
+    "warmup_ratio": 0.01,
+    "weight_decay": 1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_aw": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10,
+      -20
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 8,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": true
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 2,
+    "n_heads": 32,
+    "dropout": 0.05
+   },
+   "recipe": {
+    "epochs": 1,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0,
+    "weight_decay": 1,
+    "gradient_accumulation_steps": 8,
+    "batch_size": 4,
+    "max_grad_norm": 2,
+    "pos_weight": 2,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_tp": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10,
+      -20
+     ],
+     "name": "hs"
+    },
+    {
+     "name": "tp",
+     "top_n": 4,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 1,
+    "n_heads": 64,
+    "dropout": 0
+   },
+   "recipe": {
+    "epochs": 4,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0,
+    "weight_decay": 0,
+    "gradient_accumulation_steps": 8,
+    "batch_size": 4,
+    "max_grad_norm": 2,
+    "pos_weight": 4,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp_aw": {
+   "features": [
+    {
+     "name": "tp",
+     "top_n": 4,
+     "zero_prompt": true
+    },
+    {
+     "history": 8,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 4,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 0.0001,
+    "max_grad_norm": 1,
+    "pos_weight": 8,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.05
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp_aw_hs": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10,
+      -20
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 1,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": true
+    },
+    {
+     "name": "tp",
+     "top_n": 4,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 4,
+    "epochs": 4,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 2,
+    "pos_weight": 4,
+    "warmup_ratio": 0,
+    "weight_decay": 0
+   },
+   "seeds": [
+    42,
+    1,
+    2
+   ]
+  },
+  "ts_or_tp_hs": {
+   "features": [
+    {
+     "layers": [
+      23,
+      24
+     ],
+     "name": "ts",
+     "top_n": 10
+    },
+    {
+     "layers": [
+      -8,
+      -7,
+      -6,
+      -5,
+      -4,
+      -3,
+      -2,
+      -1
+     ],
+     "name": "layer_logits",
+     "top_n": 10
+    },
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+     ],
+     "name": "or"
+    },
+    {
+     "layers": [
+      -1,
+      -5,
+      -16
+     ],
+     "name": "hs"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 2,
+    "n_heads": 32,
+    "dropout": 0.05
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 5e-05,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.1,
+    "gradient_accumulation_steps": 4,
+    "batch_size": 4,
+    "max_grad_norm": 0.5,
+    "pos_weight": 2,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "lr": {
+   "features": [
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+     ],
+     "name": "lr"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 1,
+    "n_heads": 32,
+    "dropout": 0.1
+   },
+   "recipe": {
+    "epochs": 5,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0,
+    "weight_decay": 0.1,
+    "gradient_accumulation_steps": 7,
+    "batch_size": 4,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "richtp": {
+   "features": [
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 2,
+    "n_heads": 64,
+    "dropout": 0.0
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.0,
+    "weight_decay": 0.5,
+    "gradient_accumulation_steps": 16,
+    "max_grad_norm": 1.0,
+    "pos_weight": 2.0,
+    "batch_size": 4,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_richtp": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "hs"
+    },
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 1,
+    "n_heads": 32,
+    "dropout": 0.1
+   },
+   "recipe": {
+    "epochs": 4,
+    "learning_rate": 5e-05,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.05,
+    "gradient_accumulation_steps": 2,
+    "max_grad_norm": 4.0,
+    "pos_weight": 1.0,
+    "batch_size": 4,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "richtp_tp_config": {
+   "features": [
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 4,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 5e-05,
+    "max_grad_norm": 4,
+    "pos_weight": 16,
+    "warmup_ratio": 0.01,
+    "weight_decay": 1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_richtp_hs_tp_config": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10,
+      -20
+     ],
+     "name": "hs"
+    },
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 1,
+    "n_heads": 64,
+    "dropout": 0
+   },
+   "recipe": {
+    "epochs": 4,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0,
+    "weight_decay": 0,
+    "gradient_accumulation_steps": 8,
+    "batch_size": 4,
+    "max_grad_norm": 2,
+    "pos_weight": 4,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  }
+ },
+ "original_split_deepseek-coder-6.7b": {
+  "hs": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "hs"
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 5,
+    "fp16": true,
+    "gradient_accumulation_steps": 7,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "warmup_ratio": 0,
+    "weight_decay": 0.1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "aw": {
+   "features": [
+    {
+     "history": 8,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": false
+    }
+   ],
+   "head": {
+    "dropout": 0.5,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 4,
+    "fp16": true,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 0.5,
+    "pos_weight": 2,
+    "warmup_ratio": 0.05,
+    "weight_decay": 1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp": {
+   "features": [
+    {
+     "name": "tp",
+     "top_n": 1,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 16,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 2,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0,
+    "weight_decay": 0.05
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_aw": {
+   "features": [
+    {
+     "layers": [
+      -1
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 1,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 0.0001,
+    "max_grad_norm": 4,
+    "pos_weight": 1,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.05
+   },
+   "seeds": [
+    42,
+    1,
+    2
+   ]
+  },
+  "hs_tp": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "name": "tp",
+     "top_n": 2,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp_aw": {
+   "features": [
+    {
+     "name": "tp",
+     "top_n": 1,
+     "zero_prompt": true
+    },
+    {
+     "history": 2,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": true
+    }
+   ],
+   "head": {
+    "dropout": 0.5,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 2,
+    "fp16": true,
+    "gradient_accumulation_steps": 16,
+    "learning_rate": 5e-05,
+    "max_grad_norm": 0.5,
+    "pos_weight": 1,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0
+   },
+   "seeds": [
+    42,
+    1,
+    2
+   ]
+  },
+  "tp_aw_hs": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 4,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": false
+    },
+    {
+     "name": "tp",
+     "top_n": 2,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "ts_or_tp_hs": {
+   "features": [
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+     ],
+     "name": "ts",
+     "top_n": 10
+    },
+    {
+     "layers": [
+      -4,
+      -3,
+      -2,
+      -1
+     ],
+     "name": "layer_logits",
+     "top_n": 10
+    },
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+     ],
+     "name": "or"
+    },
+    {
+     "layers": [
+      -1,
+      -5,
+      -16
+     ],
+     "name": "hs"
+    }
+   ],
+   "head": {
+    "dropout": 0.01,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 0.0001,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "warmup_ratio": 0.1,
+    "weight_decay": 0.1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "lr": {
+   "features": [
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+     ],
+     "name": "lr"
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 5,
+    "fp16": true,
+    "gradient_accumulation_steps": 7,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "warmup_ratio": 0,
+    "weight_decay": 0.1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "control_with_test_tasks": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 4,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": false
+    },
+    {
+     "name": "tp",
+     "top_n": 2,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "control_without_test_tasks": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 4,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": false
+    },
+    {
+     "name": "tp",
+     "top_n": 2,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  }
+ },
+ "task_disjoint_deepseek-coder-6.7b": {
+  "hs": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "hs"
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 5,
+    "fp16": true,
+    "gradient_accumulation_steps": 7,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "warmup_ratio": 0,
+    "weight_decay": 0.1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "aw": {
+   "features": [
+    {
+     "history": 8,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": false
+    }
+   ],
+   "head": {
+    "dropout": 0.5,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 4,
+    "fp16": true,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 0.5,
+    "pos_weight": 2,
+    "warmup_ratio": 0.05,
+    "weight_decay": 1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp": {
+   "features": [
+    {
+     "name": "tp",
+     "top_n": 1,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 16,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 2,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0,
+    "weight_decay": 0.05
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_aw": {
+   "features": [
+    {
+     "layers": [
+      -1
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 1,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": true
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 2,
+    "n_heads": 32,
+    "dropout": 0.05
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.05,
+    "gradient_accumulation_steps": 1,
+    "batch_size": 1,
+    "max_grad_norm": 4,
+    "pos_weight": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_tp": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "name": "tp",
+     "top_n": 2,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 2,
+    "n_heads": 64,
+    "dropout": 0.05
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5,
+    "gradient_accumulation_steps": 8,
+    "batch_size": 1,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp_aw": {
+   "features": [
+    {
+     "name": "tp",
+     "top_n": 1,
+     "zero_prompt": true
+    },
+    {
+     "history": 2,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": true
+    }
+   ],
+   "head": {
+    "dropout": 0.5,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 2,
+    "fp16": true,
+    "gradient_accumulation_steps": 16,
+    "learning_rate": 5e-05,
+    "max_grad_norm": 0.5,
+    "pos_weight": 1,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp_aw_hs": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 4,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": false
+    },
+    {
+     "name": "tp",
+     "top_n": 2,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5
+   },
+   "seeds": [
+    42,
+    1,
+    2
+   ]
+  },
+  "ts_or_tp_hs": {
+   "features": [
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+     ],
+     "name": "ts",
+     "top_n": 10
+    },
+    {
+     "layers": [
+      -4,
+      -3,
+      -2,
+      -1
+     ],
+     "name": "layer_logits",
+     "top_n": 10
+    },
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+     ],
+     "name": "or"
+    },
+    {
+     "layers": [
+      -1,
+      -5,
+      -16
+     ],
+     "name": "hs"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 1,
+    "n_heads": 64,
+    "dropout": 0.01
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.1,
+    "weight_decay": 0.1,
+    "gradient_accumulation_steps": 4,
+    "batch_size": 1,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "lr": {
+   "features": [
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+     ],
+     "name": "lr"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 1,
+    "n_heads": 32,
+    "dropout": 0.1
+   },
+   "recipe": {
+    "epochs": 5,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0,
+    "weight_decay": 0.1,
+    "gradient_accumulation_steps": 7,
+    "batch_size": 1,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "richtp": {
+   "features": [
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 1,
+    "n_heads": 64,
+    "dropout": 0.05
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0.05,
+    "weight_decay": 1.0,
+    "gradient_accumulation_steps": 2,
+    "max_grad_norm": 4.0,
+    "pos_weight": 2.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_richtp": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 2048,
+    "n_layers": 2,
+    "n_heads": 16,
+    "dropout": 0.01
+   },
+   "recipe": {
+    "epochs": 4,
+    "learning_rate": 5e-05,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.05,
+    "gradient_accumulation_steps": 2,
+    "max_grad_norm": 2.0,
+    "pos_weight": 16.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "student": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs",
+     "source": "student"
+    },
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 2048,
+    "n_layers": 2,
+    "n_heads": 16,
+    "dropout": 0.01
+   },
+   "recipe": {
+    "epochs": 4,
+    "learning_rate": 5e-05,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.05,
+    "gradient_accumulation_steps": 2,
+    "max_grad_norm": 2.0,
+    "pos_weight": 16.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "distilled": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs",
+     "source": "distilled_student"
+    },
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 2048,
+    "n_layers": 2,
+    "n_heads": 16,
+    "dropout": 0.01
+   },
+   "recipe": {
+    "epochs": 4,
+    "learning_rate": 5e-05,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.05,
+    "gradient_accumulation_steps": 2,
+    "max_grad_norm": 2.0,
+    "pos_weight": 16.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ],
+   "distillation_seeds": [
+    20261015,
+    20261016,
+    20261017
+   ]
+  },
+  "richtp_tp_config": {
+   "features": [
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 16,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 2,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0,
+    "weight_decay": 0.05
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_richtp_hs_tp_config": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 2,
+    "n_heads": 64,
+    "dropout": 0.05
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5,
+    "gradient_accumulation_steps": 8,
+    "batch_size": 1,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  }
+ },
+ "original_split_codellama-7b": {
+  "hs": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "hs"
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 4,
+    "epochs": 5,
+    "fp16": true,
+    "gradient_accumulation_steps": 7,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "warmup_ratio": 0,
+    "weight_decay": 0.1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "aw": {
+   "features": [
+    {
+     "history": 2,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": false
+    }
+   ],
+   "head": {
+    "dropout": 0,
+    "head_dim": 4096,
+    "n_heads": 16,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 16,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 1,
+    "warmup_ratio": 0,
+    "weight_decay": 0.05
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp": {
+   "features": [
+    {
+     "name": "tp",
+     "top_n": 1,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 16,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 2,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0,
+    "weight_decay": 0.05
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_aw": {
+   "features": [
+    {
+     "layers": [
+      -1
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 1,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 0.0001,
+    "max_grad_norm": 4,
+    "pos_weight": 1,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.05
+   },
+   "seeds": [
+    42,
+    1,
+    2
+   ]
+  },
+  "hs_tp": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "name": "tp",
+     "top_n": 2,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp_aw": {
+   "features": [
+    {
+     "name": "tp",
+     "top_n": 1,
+     "zero_prompt": true
+    },
+    {
+     "history": 2,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": true
+    }
+   ],
+   "head": {
+    "dropout": 0.5,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 2,
+    "fp16": true,
+    "gradient_accumulation_steps": 16,
+    "learning_rate": 5e-05,
+    "max_grad_norm": 0.5,
+    "pos_weight": 1,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0
+   },
+   "seeds": [
+    42,
+    1,
+    2
+   ]
+  },
+  "tp_aw_hs": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 4,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": false
+    },
+    {
+     "name": "tp",
+     "top_n": 2,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "ts_or_tp_hs": {
+   "features": [
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+     ],
+     "name": "ts",
+     "top_n": 10
+    },
+    {
+     "layers": [
+      -4,
+      -3,
+      -2,
+      -1
+     ],
+     "name": "layer_logits",
+     "top_n": 10
+    },
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+     ],
+     "name": "or"
+    },
+    {
+     "layers": [
+      -1,
+      -5,
+      -16
+     ],
+     "name": "hs"
+    }
+   ],
+   "head": {
+    "dropout": 0.01,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 0.0001,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "warmup_ratio": 0.1,
+    "weight_decay": 0.1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "lr": {
+   "features": [
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+     ],
+     "name": "lr"
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 5,
+    "fp16": true,
+    "gradient_accumulation_steps": 7,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "warmup_ratio": 0,
+    "weight_decay": 0.1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "control_with_test_tasks": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 4,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": false
+    },
+    {
+     "name": "tp",
+     "top_n": 2,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "control_without_test_tasks": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 4,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": false
+    },
+    {
+     "name": "tp",
+     "top_n": 2,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  }
+ },
+ "task_disjoint_codellama-7b": {
+  "hs": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "hs"
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 4,
+    "epochs": 5,
+    "fp16": true,
+    "gradient_accumulation_steps": 7,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "warmup_ratio": 0,
+    "weight_decay": 0.1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "aw": {
+   "features": [
+    {
+     "history": 2,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": false
+    }
+   ],
+   "head": {
+    "dropout": 0,
+    "head_dim": 4096,
+    "n_heads": 16,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 16,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 1,
+    "warmup_ratio": 0,
+    "weight_decay": 0.05
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp": {
+   "features": [
+    {
+     "name": "tp",
+     "top_n": 1,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 16,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 2,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0,
+    "weight_decay": 0.05
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_aw": {
+   "features": [
+    {
+     "layers": [
+      -1
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 1,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": true
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 2,
+    "n_heads": 32,
+    "dropout": 0.05
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.05,
+    "gradient_accumulation_steps": 1,
+    "batch_size": 1,
+    "max_grad_norm": 4,
+    "pos_weight": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_tp": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "name": "tp",
+     "top_n": 2,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 2,
+    "n_heads": 64,
+    "dropout": 0.05
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5,
+    "gradient_accumulation_steps": 8,
+    "batch_size": 1,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp_aw": {
+   "features": [
+    {
+     "name": "tp",
+     "top_n": 1,
+     "zero_prompt": true
+    },
+    {
+     "history": 2,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": true
+    }
+   ],
+   "head": {
+    "dropout": 0.5,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 2,
+    "fp16": true,
+    "gradient_accumulation_steps": 16,
+    "learning_rate": 5e-05,
+    "max_grad_norm": 0.5,
+    "pos_weight": 1,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp_aw_hs": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 4,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": false
+    },
+    {
+     "name": "tp",
+     "top_n": 2,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5
+   },
+   "seeds": [
+    42,
+    1,
+    2
+   ]
+  },
+  "ts_or_tp_hs": {
+   "features": [
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+     ],
+     "name": "ts",
+     "top_n": 10
+    },
+    {
+     "layers": [
+      -4,
+      -3,
+      -2,
+      -1
+     ],
+     "name": "layer_logits",
+     "top_n": 10
+    },
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+     ],
+     "name": "or"
+    },
+    {
+     "layers": [
+      -1,
+      -5,
+      -16
+     ],
+     "name": "hs"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 1,
+    "n_heads": 64,
+    "dropout": 0.01
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.1,
+    "weight_decay": 0.1,
+    "gradient_accumulation_steps": 4,
+    "batch_size": 1,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "lr": {
+   "features": [
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+     ],
+     "name": "lr"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 1,
+    "n_heads": 32,
+    "dropout": 0.1
+   },
+   "recipe": {
+    "epochs": 5,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0,
+    "weight_decay": 0.1,
+    "gradient_accumulation_steps": 7,
+    "batch_size": 1,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "richtp": {
+   "features": [
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 2048,
+    "n_layers": 1,
+    "n_heads": 64,
+    "dropout": 0.0
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 5e-05,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.05,
+    "gradient_accumulation_steps": 16,
+    "max_grad_norm": 1.0,
+    "pos_weight": 1.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_richtp": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "hs"
+    },
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 1024,
+    "n_layers": 1,
+    "n_heads": 64,
+    "dropout": 0.1
+   },
+   "recipe": {
+    "epochs": 4,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.05,
+    "gradient_accumulation_steps": 8,
+    "max_grad_norm": 2.0,
+    "pos_weight": 8.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "richtp_tp_config": {
+   "features": [
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 16,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 2,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0,
+    "weight_decay": 0.05
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_richtp_hs_tp_config": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 2,
+    "n_heads": 64,
+    "dropout": 0.05
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5,
+    "gradient_accumulation_steps": 8,
+    "batch_size": 1,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  }
+ },
+ "original_split_deepseek-coder-33b": {
+  "hs": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "hs"
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 128,
+    "n_heads": 2,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 1,
+    "fp16": true,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "warmup_ratio": 0,
+    "weight_decay": 0.1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "aw": {
+   "features": [
+    {
+     "history": 8,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": false
+    }
+   ],
+   "head": {
+    "dropout": 0.01,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 1,
+    "fp16": true,
+    "gradient_accumulation_steps": 2,
+    "learning_rate": 0.0005,
+    "max_grad_norm": 2,
+    "pos_weight": 16,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.5
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp": {
+   "features": [
+    {
+     "name": "tp",
+     "top_n": 8,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 5e-05,
+    "max_grad_norm": 4,
+    "pos_weight": 16,
+    "warmup_ratio": 0.01,
+    "weight_decay": 1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_aw": {
+   "features": [
+    {
+     "layers": [
+      -1
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 1,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 0.0001,
+    "max_grad_norm": 4,
+    "pos_weight": 1,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.05
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_tp": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "name": "tp",
+     "top_n": 2,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp_aw": {
+   "features": [
+    {
+     "name": "tp",
+     "top_n": 4,
+     "zero_prompt": true
+    },
+    {
+     "history": 4,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": false
+    }
+   ],
+   "head": {
+    "dropout": 0.5,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 1,
+    "fp16": true,
+    "gradient_accumulation_steps": 16,
+    "learning_rate": 5e-05,
+    "max_grad_norm": 2,
+    "pos_weight": 1,
+    "warmup_ratio": 0,
+    "weight_decay": 0
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp_aw_hs": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 4,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": false
+    },
+    {
+     "name": "tp",
+     "top_n": 2,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "ts_or_tp_hs": {
+   "features": [
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61
+     ],
+     "name": "ts",
+     "top_n": 10
+    },
+    {
+     "layers": [
+      -4,
+      -3,
+      -2,
+      -1
+     ],
+     "name": "layer_logits",
+     "top_n": 10
+    },
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61
+     ],
+     "name": "or"
+    },
+    {
+     "layers": [
+      -1,
+      -5,
+      -16
+     ],
+     "name": "hs"
+    }
+   ],
+   "head": {
+    "dropout": 0.01,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 0.0001,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "warmup_ratio": 0.1,
+    "weight_decay": 0.1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "lr": {
+   "features": [
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61
+     ],
+     "name": "lr"
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 5,
+    "fp16": true,
+    "gradient_accumulation_steps": 7,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "warmup_ratio": 0,
+    "weight_decay": 0.1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "control_with_test_tasks": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 4,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": false
+    },
+    {
+     "name": "tp",
+     "top_n": 2,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "control_without_test_tasks": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 4,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": false
+    },
+    {
+     "name": "tp",
+     "top_n": 2,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  }
+ },
+ "task_disjoint_deepseek-coder-33b": {
+  "hs": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "hs"
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 128,
+    "n_heads": 2,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 1,
+    "fp16": true,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "warmup_ratio": 0,
+    "weight_decay": 0.1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "aw": {
+   "features": [
+    {
+     "history": 8,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": false
+    }
+   ],
+   "head": {
+    "dropout": 0.01,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 1,
+    "fp16": true,
+    "gradient_accumulation_steps": 2,
+    "learning_rate": 0.0005,
+    "max_grad_norm": 2,
+    "pos_weight": 16,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.5
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp": {
+   "features": [
+    {
+     "name": "tp",
+     "top_n": 8,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 5e-05,
+    "max_grad_norm": 4,
+    "pos_weight": 16,
+    "warmup_ratio": 0.01,
+    "weight_decay": 1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_aw": {
+   "features": [
+    {
+     "layers": [
+      -1
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 1,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": true
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 2,
+    "n_heads": 32,
+    "dropout": 0.05
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.05,
+    "gradient_accumulation_steps": 1,
+    "batch_size": 1,
+    "max_grad_norm": 4,
+    "pos_weight": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_tp": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "name": "tp",
+     "top_n": 2,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 2,
+    "n_heads": 64,
+    "dropout": 0.05
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5,
+    "gradient_accumulation_steps": 8,
+    "batch_size": 1,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp_aw": {
+   "features": [
+    {
+     "name": "tp",
+     "top_n": 4,
+     "zero_prompt": true
+    },
+    {
+     "history": 4,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": false
+    }
+   ],
+   "head": {
+    "dropout": 0.5,
+    "head_dim": 4096,
+    "n_heads": 32,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 1,
+    "fp16": true,
+    "gradient_accumulation_steps": 16,
+    "learning_rate": 5e-05,
+    "max_grad_norm": 2,
+    "pos_weight": 1,
+    "warmup_ratio": 0,
+    "weight_decay": 0
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp_aw_hs": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 4,
+     "layers": [
+      -1
+     ],
+     "name": "aw",
+     "pool": false
+    },
+    {
+     "name": "tp",
+     "top_n": 2,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.05,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5
+   },
+   "seeds": [
+    42,
+    1,
+    2
+   ]
+  },
+  "ts_or_tp_hs": {
+   "features": [
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61
+     ],
+     "name": "ts",
+     "top_n": 10
+    },
+    {
+     "layers": [
+      -4,
+      -3,
+      -2,
+      -1
+     ],
+     "name": "layer_logits",
+     "top_n": 10
+    },
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61
+     ],
+     "name": "or"
+    },
+    {
+     "layers": [
+      -1,
+      -5,
+      -16
+     ],
+     "name": "hs"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 1,
+    "n_heads": 64,
+    "dropout": 0.01
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.1,
+    "weight_decay": 0.1,
+    "gradient_accumulation_steps": 4,
+    "batch_size": 1,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "lr": {
+   "features": [
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61
+     ],
+     "name": "lr"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 1,
+    "n_heads": 32,
+    "dropout": 0.1
+   },
+   "recipe": {
+    "epochs": 5,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0,
+    "weight_decay": 0.1,
+    "gradient_accumulation_steps": 7,
+    "batch_size": 1,
+    "max_grad_norm": 1,
+    "pos_weight": 4,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "richtp": {
+   "features": [
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 512,
+    "n_layers": 2,
+    "n_heads": 16,
+    "dropout": 0.0
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 0.0005,
+    "warmup_ratio": 0.0,
+    "weight_decay": 0.5,
+    "gradient_accumulation_steps": 16,
+    "max_grad_norm": 0.5,
+    "pos_weight": 1.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_richtp": {
+   "features": [
+    {
+     "layers": [
+      -1
+     ],
+     "name": "hs"
+    },
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 1,
+    "n_heads": 64,
+    "dropout": 0.1
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.0,
+    "gradient_accumulation_steps": 4,
+    "max_grad_norm": 4.0,
+    "pos_weight": 1.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "student": {
+   "features": [
+    {
+     "layers": [
+      -1
+     ],
+     "name": "hs",
+     "source": "student"
+    },
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 1,
+    "n_heads": 64,
+    "dropout": 0.1
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.0,
+    "gradient_accumulation_steps": 4,
+    "max_grad_norm": 4.0,
+    "pos_weight": 1.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "distilled": {
+   "features": [
+    {
+     "layers": [
+      -1
+     ],
+     "name": "hs",
+     "source": "distilled_student"
+    },
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 1,
+    "n_heads": 64,
+    "dropout": 0.1
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.0,
+    "gradient_accumulation_steps": 4,
+    "max_grad_norm": 4.0,
+    "pos_weight": 1.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ],
+   "distillation_seeds": [
+    20261015,
+    20261016,
+    20261017
+   ]
+  },
+  "richtp_tp_config": {
+   "features": [
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 2
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 5e-05,
+    "max_grad_norm": 4,
+    "pos_weight": 16,
+    "warmup_ratio": 0.01,
+    "weight_decay": 1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_richtp_hs_tp_config": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 2,
+    "n_heads": 64,
+    "dropout": 0.05
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.5,
+    "gradient_accumulation_steps": 8,
+    "batch_size": 1,
+    "max_grad_norm": 1,
+    "pos_weight": 2,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  }
+ },
+ "task_disjoint_qwen2.5-coder-7b": {
+  "hs": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    }
+   ],
+   "head": {
+    "head_dim": 2048,
+    "n_layers": 2,
+    "n_heads": 8,
+    "dropout": 0.05
+   },
+   "recipe": {
+    "epochs": 4,
+    "learning_rate": 5e-05,
+    "warmup_ratio": 0.0,
+    "weight_decay": 0.05,
+    "gradient_accumulation_steps": 1,
+    "max_grad_norm": 2.0,
+    "pos_weight": 8.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "aw": {
+   "features": [
+    {
+     "history": 8,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": false
+    }
+   ],
+   "head": {
+    "head_dim": 2048,
+    "n_layers": 2,
+    "n_heads": 16,
+    "dropout": 0.01
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0.0,
+    "weight_decay": 0.5,
+    "gradient_accumulation_steps": 16,
+    "max_grad_norm": 4.0,
+    "pos_weight": 8.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp": {
+   "features": [
+    {
+     "name": "tp",
+     "top_n": 8,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "head_dim": 2048,
+    "n_layers": 2,
+    "n_heads": 16,
+    "dropout": 0.5
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.1,
+    "weight_decay": 0.5,
+    "gradient_accumulation_steps": 4,
+    "max_grad_norm": 4.0,
+    "pos_weight": 2.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_aw": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 1,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": true
+    }
+   ],
+   "head": {
+    "head_dim": 2048,
+    "n_layers": 1,
+    "n_heads": 16,
+    "dropout": 0.1
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0.1,
+    "weight_decay": 0.05,
+    "gradient_accumulation_steps": 4,
+    "max_grad_norm": 0.5,
+    "pos_weight": 4.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_tp": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "hs"
+    },
+    {
+     "name": "tp",
+     "top_n": 2,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "head_dim": 2048,
+    "n_layers": 1,
+    "n_heads": 16,
+    "dropout": 0.1
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.0,
+    "gradient_accumulation_steps": 16,
+    "max_grad_norm": 4.0,
+    "pos_weight": 16.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp_aw": {
+   "features": [
+    {
+     "name": "tp",
+     "top_n": 1,
+     "zero_prompt": true
+    },
+    {
+     "history": 8,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": false
+    }
+   ],
+   "head": {
+    "head_dim": 1024,
+    "n_layers": 1,
+    "n_heads": 64,
+    "dropout": 0.1
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 0.0005,
+    "warmup_ratio": 0.05,
+    "weight_decay": 1.0,
+    "gradient_accumulation_steps": 2,
+    "max_grad_norm": 1.0,
+    "pos_weight": 1.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "tp_aw_hs": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "hs"
+    },
+    {
+     "history": 8,
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "aw",
+     "pool": true
+    },
+    {
+     "name": "tp",
+     "top_n": 1,
+     "zero_prompt": true
+    }
+   ],
+   "head": {
+    "dropout": 0.1,
+    "head_dim": 4096,
+    "n_heads": 64,
+    "n_layers": 1
+   },
+   "recipe": {
+    "batch_size": 1,
+    "epochs": 8,
+    "fp16": true,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 1e-05,
+    "max_grad_norm": 4.0,
+    "pos_weight": 1.0,
+    "warmup_ratio": 0.0,
+    "weight_decay": 0.1
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "ts_or_tp_hs": {
+   "features": [
+    {
+     "layers": [
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+     ],
+     "name": "ts",
+     "top_n": 10
+    },
+    {
+     "layers": [
+      -2,
+      -1
+     ],
+     "name": "layer_logits",
+     "top_n": 10
+    },
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+     ],
+     "name": "or"
+    },
+    {
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "hs"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 1,
+    "n_heads": 64,
+    "dropout": 0.01
+   },
+   "recipe": {
+    "epochs": 16,
+    "learning_rate": 1e-05,
+    "warmup_ratio": 0.0,
+    "weight_decay": 0.1,
+    "gradient_accumulation_steps": 16,
+    "max_grad_norm": 4.0,
+    "pos_weight": 1.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "lr": {
+   "features": [
+    {
+     "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+     ],
+     "name": "lr"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 1,
+    "n_heads": 32,
+    "dropout": 0.1
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.1,
+    "weight_decay": 0.1,
+    "gradient_accumulation_steps": 16,
+    "max_grad_norm": 2.0,
+    "pos_weight": 2.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "richtp": {
+   "features": [
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 4096,
+    "n_layers": 1,
+    "n_heads": 16,
+    "dropout": 0.05
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 5e-05,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.1,
+    "gradient_accumulation_steps": 4,
+    "max_grad_norm": 4.0,
+    "pos_weight": 2.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_richtp": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs"
+    },
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 1024,
+    "n_layers": 1,
+    "n_heads": 16,
+    "dropout": 0.0
+   },
+   "recipe": {
+    "epochs": 4,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.0,
+    "weight_decay": 0.0,
+    "gradient_accumulation_steps": 1,
+    "max_grad_norm": 2.0,
+    "pos_weight": 8.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "student": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs",
+     "source": "student"
+    },
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 1024,
+    "n_layers": 1,
+    "n_heads": 16,
+    "dropout": 0.0
+   },
+   "recipe": {
+    "epochs": 4,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.0,
+    "weight_decay": 0.0,
+    "gradient_accumulation_steps": 1,
+    "max_grad_norm": 2.0,
+    "pos_weight": 8.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "distilled": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5,
+      -10
+     ],
+     "name": "hs",
+     "source": "distilled_student"
+    },
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 1024,
+    "n_layers": 1,
+    "n_heads": 16,
+    "dropout": 0.0
+   },
+   "recipe": {
+    "epochs": 4,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.0,
+    "weight_decay": 0.0,
+    "gradient_accumulation_steps": 1,
+    "max_grad_norm": 2.0,
+    "pos_weight": 8.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ],
+   "distillation_seeds": [
+    20261015,
+    20261016,
+    20261017
+   ]
+  },
+  "richtp_tp_config": {
+   "features": [
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 2048,
+    "n_layers": 2,
+    "n_heads": 16,
+    "dropout": 0.5
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.1,
+    "weight_decay": 0.5,
+    "gradient_accumulation_steps": 4,
+    "max_grad_norm": 4.0,
+    "pos_weight": 2.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  },
+  "hs_richtp_hs_tp_config": {
+   "features": [
+    {
+     "layers": [
+      -1,
+      -5
+     ],
+     "name": "hs"
+    },
+    {
+     "name": "richtp"
+    }
+   ],
+   "head": {
+    "head_dim": 2048,
+    "n_layers": 1,
+    "n_heads": 16,
+    "dropout": 0.1
+   },
+   "recipe": {
+    "epochs": 8,
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.01,
+    "weight_decay": 0.0,
+    "gradient_accumulation_steps": 16,
+    "max_grad_norm": 4.0,
+    "pos_weight": 16.0,
+    "batch_size": 1,
+    "fp16": true
+   },
+   "seeds": [
+    42,
+    43,
+    44
+   ]
+  }
+ }
+}

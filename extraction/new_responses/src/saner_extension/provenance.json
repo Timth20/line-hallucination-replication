@@ -1,0 +1,72 @@
+{
+  "schema": "saner_extension_provenance_v1",
+  "replay_original_directory": "extraction/original_outputs/src/saner_reproduction",
+  "replay_normalized_utf8_lf_sha256": {
+    "features.py": "28132d6752e0075adec68e7a95e6cbad31f2e469b798bdac6c6f824c8b9fc461",
+    "models.py": "3eb0cfa94ab4eb68e1c63335cc4938ff9dda7ff3343169c3e5d4ffd91928bef3",
+    "types.py": "87ddf49d4305fa249689be12ffcc925356dc7732b5f3308120eb6e69ca511350"
+  },
+  "public_sources": {
+    "paper_code": {
+      "repository": "https://github.com/datapaf/CodeHallucinationDetection",
+      "revision": "4681508aeec9c7aa491f42308f6090417118a818",
+      "license": "MIT",
+      "dataset_license_scope": "repository license; upstream benchmark terms still apply"
+    },
+    "uncertainty_head": {
+      "repository": "https://github.com/IINemo/llm-uncertainty-head",
+      "revision": "a49dcb8841a871887fa64e33cb325b041b9809db"
+    },
+    "bigcodebench": {
+      "repository": "https://huggingface.co/datasets/bigcode/bigcodebench",
+      "revision": "b74c0d0bf70d2c0bc459be537895cca163007f1a",
+      "version": "v0.1.4",
+      "split": "Full-Instruct",
+      "license": "Apache-2.0",
+      "license_source": "https://huggingface.co/datasets/bigcode/bigcodebench"
+    }
+  },
+  "memory_assumptions": {
+    "dtype": "float16",
+    "attention_bytes_per_element": 2,
+    "logits_bytes_per_element": 2,
+    "quantized_linear_bytes_per_parameter": 0.5625,
+    "quantized_dense_embeddings_and_head_bytes_per_parameter": 2,
+    "excludes": "CUDA allocator, KV cache, forward workspaces, dequantization and transient feature reductions; smoke is mandatory"
+  },
+  "models": {
+    "dsc_1_3b": {
+      "parameters": 1346471936,
+      "vocabulary": 32256,
+      "license": "DeepSeek model license (model card: other)",
+      "ceiling_lower_gib": 9.74
+    },
+    "dsc_6_7b": {
+      "parameters": 6740512768,
+      "vocabulary": 32256,
+      "license": "DeepSeek model license (model card: other)",
+      "ceiling_lower_gib": 31.51
+    },
+    "dsc_33b": {
+      "parameters": 33342991360,
+      "vocabulary": 32256,
+      "license": "DeepSeek model license (model card: other)",
+      "ceiling_lower_gib": 81.89,
+      "precision": "4-bit"
+    },
+    "codellama_7b": {
+      "parameters": 6738546688,
+      "vocabulary": 32016,
+      "license": "Llama 2 community license",
+      "ceiling_lower_gib": 31.51
+    },
+    "qwen2_5_coder_7b": {
+      "parameters": 7615616512,
+      "vocabulary": 152064,
+      "license": "Apache-2.0",
+      "ceiling_lower_gib": 29.43,
+      "defects4j_ceiling_lower_gib": 58.95
+    }
+  },
+  "parameter_count_source": "Public https://huggingface.co/api/models/<model-id>/revision/<pinned-revision> safetensors.total; no weights downloaded"
+}

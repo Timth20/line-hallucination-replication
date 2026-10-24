@@ -1,0 +1,93 @@
+schema: saner_extension_v1
+run_id: extension_qwen2_5_coder_7b_humaneval_java_v1
+track: extension
+model_key: qwen2_5_coder_7b
+dataset: humaneval_java
+precision_class: unquantized
+runtime:
+  seed: 20260907
+  output_root_name: outputs_new
+  minimum_gpu_gib: 44
+  peak_reserved_fraction: 0.95
+  minimum_free_gib: 2
+source:
+  kind: paper_task_union
+  repository: https://github.com/datapaf/CodeHallucinationDetection
+  revision: "4681508aeec9c7aa491f42308f6090417118a818"
+  archive_url: https://raw.githubusercontent.com/datapaf/CodeHallucinationDetection/4681508aeec9c7aa491f42308f6090417118a818/datasets.zip
+  archive_sha256: "6f8918ad2a2ca34d8ee4ba61f85d9c274db2dbfde7a3d574ed7c486944e1e868"
+  expected_tasks: 115
+model:
+  id: Qwen/Qwen2.5-Coder-7B-Instruct
+  revision: c03e6d358207e414f1eca0bb1891e29f1db0e242
+  dtype: float16
+  attention_implementation: eager
+  trust_remote_code: false
+  expected_shape:
+    layers: 28
+    hidden_size: 3584
+    attention_heads: 28
+generation:
+  do_sample: false
+  num_beams: 1
+  max_new_tokens: 1280
+split:
+  seed: 20260907
+  train: 0.64
+  val: 0.16
+  test: 0.2
+  grouping: task_id_humaneval_family_defects4j_project_bcb_exact_prompt
+  defects4j_allocation: hash_order_11_train_3_val_3_test_projects
+labels:
+  method: paper_diff_proxy
+  reference_selection: highest_difflib_ratio_then_sha256
+  reference_role: separate_control
+features:
+  predictor_scope: full_sequence
+  feature_families: ["TP","HS","AW","TS","OR","LR","text"]
+  configuration_repository: https://github.com/datapaf/CodeHallucinationDetection
+  configuration_revision: "4681508aeec9c7aa491f42308f6090417118a818"
+  configuration_path: Src/Experiments/UncertaintyEstimationConfigs/train/instruct_line_diff_factoscope_dsc6.yaml
+  uhead_configuration_path: Src/Experiments/UncertaintyEstimationConfigs/train/instruct_line_diff_uhead_factoscope_dsc6.yaml
+  lookback_configuration_path: Src/Experiments/UncertaintyEstimationConfigs/train/instruct_line_diff_lookbacklens_dsc6.yaml
+  reference_repository: https://github.com/IINemo/llm-uncertainty-head
+  reference_revision: a49dcb8841a871887fa64e33cb325b041b9809db
+  reference_extractors: ["token_probabilities.py","basic_hidden_states.py","basic_attention.py","token_similarities_adjacent_layers.py","token_probabilities_from_layers.py","final_output_ranks.py","lookback_lens.py"]
+  published_protocols:
+    main:
+      probability_top_k: 2
+      hidden_state_layers: [-1,-5,-10]
+      attention_layers: [-1]
+      attention_history: 4
+      attention_pool: false
+    published_transformer_attention_union:
+      attention_layers: [-1,-5]
+      attention_history: 8
+    factoscope:
+      hidden_state_layers: [-1,-5,-16]
+      linear_token_similarity_layers: [-2,-1]
+      uhead_token_similarity_layers: all
+      layer_top_logits_layers: [-8,-7,-6,-5,-4,-3,-2,-1]
+      declared_output_rank_layers: [-2,-1]
+      implemented_output_rank_layers: all
+    lookback:
+      attention_layers: all
+      attention_heads: all
+      behavior: public_training_forward_all_heads
+  hidden_state_layers: [-1,-5,-10,-16]
+  probability_top_k: 8
+  attention_layers: [-1,-5]
+  attention_history: 8
+  max_total_tokens: 3072
+  probability_chunk_tokens: 128
+  layer_top_logits_layers: [-8,-7,-6,-5,-4,-3,-2,-1]
+  token_similarity_layers: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28]
+  intermediate_top_k: 10
+  intermediate_chunk_tokens: 32
+  intermediate_projection: lm_head_raw_logits
+  output_rank_layers: all
+  output_rank_behavior: loader_ignores_config_uses_all_decoder_layers
+  output_rank_alignment: public_training_row_lag_first_row_one
+  lookback_layers: all
+  lookback_behavior: public_training_forward_all_heads
+  adaptation: "DSC6 relative HS/AW/layer-logit selectors; Qwen all-layer TS/OR/LR"

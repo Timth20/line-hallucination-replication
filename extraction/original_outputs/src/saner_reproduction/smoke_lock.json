@@ -1,0 +1,41 @@
+{
+  "schema": "saner_longest_sample_smoke",
+  "runs": {
+    "paper_dsc_1_3b": {
+      "sample_start": 895,
+      "allowed_attention_dtypes": [
+        "float16"
+      ],
+      "minimum_gpu_memory_bytes": 24000000000,
+      "minimum_headroom_bytes": 2147483648,
+      "maximum_reserved_fraction": 0.95
+    },
+    "paper_dsc_6_7b": {
+      "sample_start": 680,
+      "allowed_attention_dtypes": [
+        "float16"
+      ],
+      "minimum_gpu_memory_bytes": 48000000000,
+      "minimum_headroom_bytes": 2147483648,
+      "maximum_reserved_fraction": 0.95
+    },
+    "paper_codellama_7b": {
+      "sample_start": 913,
+      "allowed_attention_dtypes": [
+        "float16"
+      ],
+      "minimum_gpu_memory_bytes": 48000000000,
+      "minimum_headroom_bytes": 2147483648,
+      "maximum_reserved_fraction": 0.95
+    },
+    "paper_dsc_33b": {
+      "sample_start": 698,
+      "allowed_attention_dtypes": [
+        "float16"
+      ],
+      "minimum_gpu_memory_bytes": 140000000000,
+      "minimum_headroom_bytes": 2147483648,
+      "maximum_reserved_fraction": 0.95
+    }
+  }
+}

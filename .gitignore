@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+runs/
+distill/
+student_states/
+statistics/results.json
+statistics/tables.md

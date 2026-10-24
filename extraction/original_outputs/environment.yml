@@ -1,0 +1,12 @@
+name: saner-paper-extraction
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip=25.1
+  - pytorch=2.5.1
+  - pytorch-cuda=12.1
+  - pip:
+      - -e .

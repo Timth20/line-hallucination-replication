@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "saner-extension"
+version = "0.1.0"
+description = "Generation, line labels and token-level features of the new responses"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "accelerate==1.6.0", "bitsandbytes==0.45.5", "datasets==3.6.0",
+  "huggingface-hub==0.30.2", "numpy==1.26.4", "pyarrow==18.1.0", "PyYAML==6.0.2",
+  "safetensors==0.5.3", "sentencepiece==0.2.0", "tokenizers==0.21.1",
+  "torch==2.5.1", "transformers==4.49.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+saner_extension = ["*.json"]
+

@@ -1,0 +1,80 @@
+{
+ "deepseek-coder-6.7b->deepseek-coder-1.3b": {
+  "base_validation_mean_r2": 0.41309558701967364,
+  "runs": [
+   {
+    "detector_seed": 42,
+    "distillation_seed": 20261015,
+    "learning_rate": 0.0003,
+    "step": 700,
+    "validation_mean_r2": 0.42476109760683506
+   },
+   {
+    "detector_seed": 43,
+    "distillation_seed": 20261016,
+    "learning_rate": 0.0003,
+    "step": 600,
+    "validation_mean_r2": 0.42474513909075134
+   },
+   {
+    "detector_seed": 44,
+    "distillation_seed": 20261017,
+    "learning_rate": 0.0003,
+    "step": 950,
+    "validation_mean_r2": 0.4247458857305225
+   }
+  ]
+ },
+ "deepseek-coder-33b->deepseek-coder-1.3b": {
+  "base_validation_mean_r2": 0.37424830817896804,
+  "runs": [
+   {
+    "detector_seed": 42,
+    "distillation_seed": 20261015,
+    "learning_rate": 0.0003,
+    "step": 1050,
+    "validation_mean_r2": 0.4110988071697934
+   },
+   {
+    "detector_seed": 43,
+    "distillation_seed": 20261016,
+    "learning_rate": 0.0003,
+    "step": 950,
+    "validation_mean_r2": 0.410828945717227
+   },
+   {
+    "detector_seed": 44,
+    "distillation_seed": 20261017,
+    "learning_rate": 0.0003,
+    "step": 900,
+    "validation_mean_r2": 0.4109859176290647
+   }
+  ]
+ },
+ "qwen2.5-coder-7b->qwen2.5-coder-1.5b": {
+  "base_validation_mean_r2": 0.53570402020548,
+  "runs": [
+   {
+    "detector_seed": 42,
+    "distillation_seed": 20261015,
+    "learning_rate": 0.0003,
+    "step": 1150,
+    "validation_mean_r2": 0.5544051760239586
+   },
+   {
+    "detector_seed": 43,
+    "distillation_seed": 20261016,
+    "learning_rate": 0.0003,
+    "step": 1150,
+    "validation_mean_r2": 0.5543644836216719
+   },
+   {
+    "detector_seed": 44,
+    "distillation_seed": 20261017,
+    "learning_rate": 0.0003,
+    "step": 1150,
+    "validation_mean_r2": 0.5543599555320543
+   }
+  ]
+ }
+}
